@@ -1,11 +1,13 @@
+---
+- name: Vars
+  hosts: linuxservers
+  become: true
 
-    - name: Enable httpd service
-      ansible.builtin.systemd:
-        name: httpd
-        state: started
-        enabled: true
-      register: httpd_status
+  vars:
+    package: httpd
 
-    - name: Show Status
-      ansible.builtin.debug:
-        var: httpd_status
+  tasks:
+    - name: Install Packages
+      ansible.builtin.package:
+        name: "{{ package }}"
+        state: present
