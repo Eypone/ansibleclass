@@ -9,4 +9,4 @@
 
     - name: Debug Facts Hostname - Unsafe Text
       ansible.builtin.debug:
-        msg: "{{ ansible_facts['nodename'] }} ansib"
+        msg: "{{ ansible_facts['nodename'] }} and {{ ansible_facts['nodename'] }}"
