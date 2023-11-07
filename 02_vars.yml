@@ -9,7 +9,7 @@
       - mariadb-server
       - php
       - php-mysqlnd
- tasks:
+  tasks:
     - name: Install and configure Webserver
       when: ansible_facts['distribution'] == 'RedHat'
       block:
@@ -43,22 +43,6 @@
         - name: Always do this
           ansible.builtin.debug:
             msg: "Will always run"
-            
-  tasks:
-    - name: Install Packages
-      ansible.builtin.package:
-        name: "{{ package }}"
-        state: present
-    - name: Enable httpd service
-      ansible.builtin.systemd:
-        name: httpd
-        state: started
-        enabled: true
-      register: httpd_status
-
-    - name: Show Status
-      ansible.builtin.debug:
-        var: httpd_status
 
     - name: Is httpd running
       ansible.builtin.debug:
