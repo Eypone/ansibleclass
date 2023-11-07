@@ -28,7 +28,7 @@ galaxy_info:
   # https://galaxy.ansible.com/api/v1/platforms/
   #
   platforms:
-    - name: EL-chesbuger
+    - name: EL
       versions:
         - "8"
 
